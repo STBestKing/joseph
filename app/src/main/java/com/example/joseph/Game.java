@@ -12,6 +12,7 @@ public class Game {
         Player temp;
         Player end;
         H = end = new Player();
+        end.next = H;
         H.no = 1;
         for (int i=2; i<=n; i++) {
             temp = new Player();

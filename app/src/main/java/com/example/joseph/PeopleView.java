@@ -14,6 +14,8 @@ public class PeopleView extends View {
     int init = R.drawable.init;
     int show = R.drawable.show;
     int shut = R.drawable.shut;
+    int degree;
+    int speed;
     float width1, height1;
     Paint paint;
     Bitmap bitmap = BitmapFactory.decodeResource(getResources(), init);
@@ -52,12 +54,15 @@ public class PeopleView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        canvas.rotate(degree,width1/6,height1/6);
         canvas.drawBitmap(bitmap,matrix,paint);
+        degree += speed;
         invalidate();
     }
 
     protected void setPaintinit() {
         bitmap = BitmapFactory.decodeResource(getResources(),init);
+        speed = 0;
     }
 
     protected void setPaintshow() {
